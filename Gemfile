@@ -8,6 +8,7 @@ gem 'rails', '3.2.1'
 gem 'sqlite3'
 gem 'execjs'
 gem 'therubyracer'
+gem 'rspec-core'
 
 
 # Gems used only for assets and not required
@@ -29,6 +30,7 @@ end
 group :test do
   gem 'rspec-rails', '2.6.1'
   gem 'webrat', '0.7.1'
+  gem 'spork'
 end
 
 gem 'jquery-rails'

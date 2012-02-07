@@ -9,7 +9,7 @@ gem 'sqlite3'
 gem 'execjs'
 gem 'therubyracer'
 gem 'rspec-core'
-
+gem 'rb-readline'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -30,6 +30,7 @@ end
 group :test do
   gem 'rspec-rails', '2.6.1'
   gem 'webrat', '0.7.1'
+  gem 'autotest'
   gem 'spork'
 end
 

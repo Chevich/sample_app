@@ -34,6 +34,7 @@ group :test do
   gem 'webrat', '0.7.1'
   gem 'autotest'
   gem 'spork'
+  gem 'factory_girl'
 end
 
 gem 'jquery-rails'

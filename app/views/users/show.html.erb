@@ -1,1 +1,14 @@
-<%= @user.name.capitalize %>,  {<%= @user.email %>}
+<table class="profile" summary="Profile information">
+  <tr>
+    <td class="main">
+      <h1>
+        <%= gravatar_tag @user %>
+        <%= @user.name.capitalize %>
+      </h1>
+    </td>
+    <td class="sidebar round">
+      <strong>Name</strong> <%= @user.name %><br />
+      <strong>URL</strong>  <%= link_to user_path(@user), @user  %>
+    </td>
+  </tr>
+</table>  

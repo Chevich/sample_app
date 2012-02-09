@@ -11,6 +11,7 @@ gem 'therubyracer'
 gem 'rspec-core'
 gem 'rb-readline'
 gem 'test-unit'
+gem 'gravatar_image_tag'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -34,7 +35,7 @@ group :test do
   gem 'webrat', '0.7.1'
   gem 'autotest'
   gem 'spork'
-  gem 'factory_girl'
+  gem 'factory_girl_rails', '~> 1.2'
 end
 
 gem 'jquery-rails'

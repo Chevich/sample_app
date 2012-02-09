@@ -1,4 +1,9 @@
 require 'spork'
+#require 'factory_girl'
+
+#Dir.glob(File.dirname(__FILE__) + "/factories/*").each do |factory|
+#     require factory
+#   end
 
 Spork.prefork do
   # Loading more in this block will cause your tests to run faster. However, 

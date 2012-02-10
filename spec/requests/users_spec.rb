@@ -1,4 +1,5 @@
-require 'spec_helper'
+# coding: utf-8
+#require 'spec_helper'
 
 describe "Users" do
 
@@ -9,7 +10,7 @@ describe "Users" do
       it "should not make a new user" do
         lambda do
           visit signup_path
-          fill_in "user_name",         :with => ""
+          fill_in "Имя пользователя",         :with => ""
           fill_in "Email",        :with => ""
           fill_in "user_password",     :with => ""
           fill_in "user_password_confirmation", :with => ""

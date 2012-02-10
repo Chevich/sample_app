@@ -1,13 +1,11 @@
 module SessionsHelper
 
   def current_user=(user)
-    @current_user = session[user.id] && User.find(session[user.id])
-    #@current_user = user      //cookie
+    @current_user = user      #cookie
   end
 
   def current_user
-    @current_user
-    #@current_user ||= user_from_remember_token  //cookie
+    @current_user ||= user_from_remember_token  #cookie
   end
 
   def sign_in(user)

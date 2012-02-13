@@ -278,10 +278,10 @@ describe UsersController do
       end
 
       it "should have an element for each user" do
-        #get :index
-        #@users[0..2].each do |user|
-        #  response.should have_selector(:li, :content => user.name)
-        #end
+        get :index
+        @users[0..2].each do |user|
+         response.should have_selector(:li, :content => user.name)
+        end
       end
 
       it "should paginate users" do
@@ -293,6 +293,32 @@ describe UsersController do
         response.should have_selector("a", :href => "/users?page=2",
                                            :content => "Следующий")
       end
+
+      it "should not have DELETE in respond" do
+        get :index
+        response.should_not have_selector("a", :content => "Delete" )
+      end
+
+    end
+
+    describe "for signed admins" do
+
+      before(:each) do
+        @admin = Factory(:user, :email => "admin123@example.com", :admin => true)
+        test_sign_in(@admin)
+      end
+
+      it "should have DELETE in respond" do
+        get :index
+        response.should have_selector("a", :content => "Delete" )
+      end
+
+      it "should cant delete yourself " do
+        delete :destroy, :id => @admin
+        response.should redirect_to(users_path)
+      end
+
+
     end
   end
 

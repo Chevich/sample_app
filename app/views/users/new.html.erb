@@ -1,24 +1,8 @@
 # coding: utf-8
 <h1>Sign up</h1>
 
-<%= form_for(@user) do |f| %>
-  <%= render 'shared/error_messages', :object => f.object %>
-  <div class="field">
-    <%= f.label :name, "Имя пользователя", :class => "lab" %><br />
-    <%= f.text_field :name, :size => 50 %>
-  </div>
-  <div class="field">
-    <%= f.label :email, :class => "lab" %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :password, "Пароль" %><br />
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation, "Подтверждение" %><br />
-    <%= f.password_field :password_confirmation %>
-  </div>
+  <%= form_for(@user) do |f| %>
+    <%= render "fields", :f => f %>
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

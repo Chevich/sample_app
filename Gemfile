@@ -13,6 +13,8 @@ gem 'rb-readline'
 gem 'test-unit'
 gem 'gravatar_image_tag'
 gem 'russian', '~> 0.6.0'
+gem 'faker'
+gem 'will_paginate'
 
 # Gems used only for assets and not required
 # in production environments by default.

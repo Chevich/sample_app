@@ -8,7 +8,6 @@ require "active_resource/railtie"
 require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
-
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
   Bundler.require(*Rails.groups(:assets => %w(development test)))
@@ -64,5 +63,6 @@ module SampleApp
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
     config.i18n.default_locale = :ru
+    WillPaginate.per_page = 10
   end
 end

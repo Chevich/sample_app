@@ -47,7 +47,8 @@ describe Micropost do
       [@mp1, @mp2].each do |micropost|
         Micropost.find_by_id(micropost.id).should be_nil
       end
-     end
+    end
+
     describe "validations" do
 
       it "should require a user id" do
@@ -60,6 +61,30 @@ describe Micropost do
 
       it "should reject long content" do
         @user.microposts.build(:content => "a" * 141).should_not be_valid
+      end
+    end
+
+    describe "status feed" do
+
+      before(:each) do
+        @user2 = Factory(:user, :email => "new2@tut.by")
+        @mp21 = Factory(:micropost, :user => @user2, :created_at => 1.day.ago)
+        @mp22 = Factory(:micropost, :user => @user2, :created_at => 1.hour.ago)
+      end
+
+      it "should have a feed" do
+        @user2.should respond_to(:feed)
+      end
+
+      it "should include the user's microposts" do
+        @user2.feed.include?(@mp21).should be_true
+        @user2.feed.include?(@mp22).should be_true
+      end
+
+      it "should not include a different user's microposts" do
+        mp3 = Factory(:micropost,
+                      :user => Factory(:user, :email => Factory.next(:email)))
+        @user2.feed.include?(mp3).should be_false
       end
     end
   end

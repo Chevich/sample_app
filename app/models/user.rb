@@ -14,6 +14,17 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation
 
   has_many :microposts, :dependent => :destroy
+
+
+  has_many :relationships, :foreign_key => "follower_id",
+                           :dependent => :destroy
+  has_many :following, :through => :relationships, :source => :followed
+
+
+  has_many :reverse_relationships, :foreign_key => "followed_id",
+                           :dependent => :destroy
+  has_many :followers, :through => :reverse_relationships#, :source => :follower
+
  
  #email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   email_regex = /[\w\d\-.]+@[a-z\d\-.]+\.[a-z\d]+/i
@@ -34,8 +45,6 @@ class User < ActiveRecord::Base
   end
 
   def feed
-    # This is preliminary. See Глава 12 for the full implementation.
-    #Micropost.where("user_id = ?", id)
     microposts
   end
 
@@ -43,13 +52,23 @@ class User < ActiveRecord::Base
     user = find_by_email(email)
     user = find_by_name(email) if user.nil?
     (user && user.has_password?(submitted_password)) ? user : nil
-  #  return nil  if user.nil?
-  #  return user if user.has_password?(submitted_password)
   end
 
-   def self.authenticate_with_salt(id, cookie_salt)
+  def self.authenticate_with_salt(id, cookie_salt)
     user = find_by_id(id)
     (user && user.salt == cookie_salt) ? user : nil
+  end
+
+  def following?(followed)
+    self.relationships.find_by_followed_id(followed)
+  end
+
+  def follow!(followed)
+    self.relationships.create!(:followed_id => followed.id)
+  end
+
+  def unfollow!(followed)
+    relationships.find_by_followed_id(followed).destroy
   end
   
   private

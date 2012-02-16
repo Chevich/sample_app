@@ -2,6 +2,10 @@
   width: 710px;
 }
 
+.sign {
+    background: yellow;
+    font-size: 100%;
+}
 
 body {
   background: #cff;
@@ -98,6 +102,7 @@ a.signup_button {
 }
 
 /* Round corners */
+
 
 .round {
   -moz-border-radius:    10px;

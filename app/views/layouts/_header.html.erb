@@ -1,21 +1,22 @@
+#coding: utf-8
 <header>
   <%= link_to logo, root_path %>
   <nav class="round">
     <ul>
-      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "Главная", root_path %></li>
 
       <% if signed_in? %>
-        <li><%= link_to "Profile", user_path(current_user) %></li>
-        <li><%= link_to "Users", users_path %></li>
-        <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+        <li><%= link_to "Профиль", user_path(current_user) %></li>
+        <li><%= link_to "Пользователи", users_path %></li>
+        <li><%= link_to "Настройки", edit_user_path(current_user) %></li>
       <% end %>
 
-      <li><%= link_to "Help", help_path %></li>
+      <li><%= link_to "Помощь", help_path %></li>
 
       <% if signed_in? %>
-        <li><%= link_to "Sign out", signout_path, :method => :delete %></li>
+        <li><%= link_to "Выход", signout_path, :method => :delete, :class=> :sign %></li>
       <% else %>
-        <li><%= link_to "Sign in", signin_path %></li>
+        <li><%= link_to "Вход", signin_path, :class=> :sign %></li>
       <% end %>
 
     </ul>

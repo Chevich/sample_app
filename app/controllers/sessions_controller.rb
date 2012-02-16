@@ -1,7 +1,7 @@
 # coding: utf-8
 class SessionsController < ApplicationController
   def new
-    @title = "Sign in"
+    @title = "Вход"
   end
 
   def create
@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
                              params[:session][:password])
     if user.nil?
       flash.now[:error] = "Пользователь с данными параметрами отсутствует в базе"
-      @title = "Sign in"
+      @title = "Вход"
       render :new
     else
       sign_in user

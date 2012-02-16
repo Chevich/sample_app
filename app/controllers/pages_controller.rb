@@ -1,7 +1,8 @@
+#coding: utf-8
 class PagesController < ApplicationController
 
   def home
-    @title = 'Home'
+    @title = 'Главная'
     if signed_in?
       @micropost = Micropost.new
       @feed_items = current_user.feed.paginate(:page => params[:page])
@@ -9,15 +10,15 @@ class PagesController < ApplicationController
   end
 
   def contact
-    @title = 'Contact'
+    @title = 'Контакты'
   end
 
   def about
-    @title = 'About'
+    @title = 'О нас'
   end
 
   def help
-    @title = 'Help'
+    @title = 'Помощь'
   end
 
 end

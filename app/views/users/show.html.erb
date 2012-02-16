@@ -1,3 +1,4 @@
+#coding: utf-8
 <table class="profile" summary="Profile information">
   <tr>
     <td class="main">
@@ -5,6 +6,7 @@
         <%= gravatar_tag @user %>
         <%= @user.name.capitalize %>
       </h1>
+      <%= render 'follow_form' if signed_in? %>
     </td>
     <% unless @user.microposts.empty? %>
         <table class="microposts" summary="User microposts">
@@ -13,9 +15,9 @@
         <%= will_paginate @microposts, :per_page => 3  %>
       <% end %>
     <td class="sidebar round">
-      <strong>Name</strong> <%= @user.name %><br />
+      <strong>Имя</strong> <%= @user.name %><br />
       <strong>URL</strong>  <%= link_to user_path(@user), @user  %><br />
-      <strong>Microposts</strong>  <%= @user.microposts.count  %>
+      <strong>Сообщений</strong>  <%= @user.microposts.count  %>
     </td>
   </tr>
 </table>  

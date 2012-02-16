@@ -1,5 +1,6 @@
+# coding: utf-8
 class UsersController < ApplicationController
-  before_filter :authenticate, :only => [:edit, :update, :index, :destroy]
+  before_filter :authenticate, :except => [:show, :new, :create]
   before_filter :correct_user, :only => [:edit, :update]
   before_filter :admin_user,   :only => :destroy
 
@@ -10,19 +11,19 @@ class UsersController < ApplicationController
   end
 
   def index
-    @title = "Index list of all users"
+    @title = "Список всех пользователей"
     @users = User.paginate(:page => params[:page])
     #@users = User.all
   end
 
   def new
     redirect_to root_path unless current_user?(@user)
-    @title = 'Sign up'
+    @title = 'Регистрация'
     @user = User.new
   end
 
   def edit
-    @title = 'Edit user'
+    @title = 'Настройки'
     #@user = User.find(params[:id])
   end
 
@@ -32,7 +33,7 @@ class UsersController < ApplicationController
       flash[:success] = "Profile updated."
       redirect_to @user
     else
-      @title = "Edit user"
+      @title = "Настройки"
       render 'edit'
     end
   end
@@ -45,7 +46,7 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to the Sample App!"
       redirect_to @user
     else
-      @title = "Sign up"
+      @title = "Регистрация"
       render 'new'
     end
   end
@@ -61,6 +62,20 @@ class UsersController < ApplicationController
       flash[:success] = "User <<#{str}>> destroyed."
       redirect_to users_path
     end
+  end
+
+  def followers
+    @title = "Следящие"
+    @user = User.find(params[:id])
+    @users = @user.followers.paginate(:page => params[:page])
+    render 'show_follow'
+  end
+
+  def following
+    @title = "Наблюдаемые"
+    @user = User.find(params[:id])
+    @users = @user.following.paginate(:page => params[:page])
+    render 'show_follow'
   end
 
 private

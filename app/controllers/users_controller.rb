@@ -4,6 +4,10 @@ class UsersController < ApplicationController
   before_filter :correct_user, :only => [:edit, :update]
   before_filter :admin_user,   :only => :destroy
 
+  def feed
+    Micropost.from_users_followed_by
+  end
+
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(:page => params[:page])
@@ -88,5 +92,4 @@ private
     def admin_user
       redirect_to(root_path) unless current_user.admin?
     end
-
 end

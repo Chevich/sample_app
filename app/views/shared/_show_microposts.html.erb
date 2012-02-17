@@ -3,11 +3,19 @@
       <td class="main">
         <h1 class="micropost">Какое сообщение напишем?</h1>
         <%= render 'shared/micropost_form' %>
-        <%= render 'shared/feed' %>
       </td>
+      <td>
       <td class="sidebar round">
         <%= render 'shared/user_info' %>
         <%= render 'shared/stats' %>
+      </td>
+      </td>
+    </tr>
+ </table>
+ <table  class="front" summary="For signed-in users">
+    <tr>
+      <td class="main">
+        <%= render 'shared/feed' %>
       </td>
     </tr>
   </table>

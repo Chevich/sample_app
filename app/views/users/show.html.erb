@@ -4,7 +4,7 @@
     <td class="main">
       <h1>
         <%= gravatar_tag @user %>
-        <%= @user.name.capitalize %>
+        <%= @user.name.split(" ").map!{|item|item.capitalize}.join(' ') %>
       </h1>
       <%= render 'follow_form' if signed_in? %>
     </td>

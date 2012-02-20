@@ -28,6 +28,11 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :production do
+  gem 'therubyracer-heroku'
+  gem 'pg'
+end
+
 group :development do
   gem 'rspec-rails', '2.6.1'
   gem 'annotate', '>= 2.4.1.beta1'

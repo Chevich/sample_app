@@ -1,12 +1,13 @@
-<h1>Sign in</h1>
+#coding:utf-8
+<h1>Входим..</h1>
 
 <%= form_for(:session, :url => sessions_path) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email, "Имя или Email" %><br />
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :password %><br />
+    <%= f.label :password, "Пароль" %><br />
     <%= f.password_field :password %>
   </div>
   <div class="actions">

@@ -1,16 +1,17 @@
 # coding: utf-8
 module ApplicationHelper
   # Return a title on a per-page basis.
+  @@title = "Твиттер-шмиттер"
+
   def logo
-    image_tag("logo.jpeg", :alt => "Sample App", :class => "round") 
+    image_tag("logo.png", :alt => @@title, :class => "round")
   end  
 
   def title123
-    base_title = "Твиттер-шмиттер"
     if @title.nil?
-      "#{base_title}"
+      "#{@@title}"
     else
-      "#{base_title} | #{@title}"
+      "#{@@title} | #{@title}"
     end
   end
 end

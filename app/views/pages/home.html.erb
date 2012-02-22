@@ -2,6 +2,6 @@
 <% if signed_in? %>
   <%= render 'shared/show_microposts' %>
 <% else %>
-    <h1>Sample App | <%=@title %></h1>
+    <h1><%=project_name%> | <%=@title %></h1>
     <%= link_to "Регистрация", signup_path, :class => "signup_button round" %>
 <% end %>

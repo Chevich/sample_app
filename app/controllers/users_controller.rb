@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   def update
     #@user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      flash[:success] = "Profile updated."
+      flash[:success] = "Профиль обновлен."
       redirect_to @user
     else
       @title = "Настройки"
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to the Sample App!"
+      flash[:success] = "Добро пожаловать в Твиттер-шмиттер"
       redirect_to @user
     else
       @title = "Регистрация"

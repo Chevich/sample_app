@@ -1,3 +1,4 @@
+# coding: utf-8
 module ApplicationHelper
   # Return a title on a per-page basis.
   def logo
@@ -5,7 +6,7 @@ module ApplicationHelper
   end  
 
   def title123
-    base_title = "Ruby on Rails Tutorial Sample App"
+    base_title = "Твиттер-шмиттер"
     if @title.nil?
       "#{base_title}"
     else

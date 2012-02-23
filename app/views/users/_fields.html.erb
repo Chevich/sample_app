@@ -8,6 +8,14 @@
   <%= f.text_field :email %>
 </div>
 <div class="field">
+  <%= f.label :question,"Секретный вопрос" %><br />
+  <%= f.text_field :question %>
+</div>
+<div class="field">
+  <%= f.label :answer,"Ответ на секретный вопрос" %><br />
+  <%= f.text_field :answer %>
+</div>
+<div class="field">
   <%= f.label :password, "Пароль" %><br />
   <%= f.password_field :password %>
 </div>

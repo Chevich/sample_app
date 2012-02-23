@@ -1,3 +1,4 @@
+#coding:utf-8
 require 'spec_helper'
 
 describe "Microposts" do
@@ -6,7 +7,7 @@ describe "Microposts" do
     @user = Factory(:user)
     visit signin_path
     fill_in :email,    :with => @user.email
-    fill_in :password, :with => @user.password
+    fill_in "Пароль", :with => @user.password
     click_button
   end
 

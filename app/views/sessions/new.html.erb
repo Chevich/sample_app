@@ -10,9 +10,12 @@
     <%= f.label :password, "Пароль" %><br />
     <%= f.password_field :password %>
   </div>
+  <input name="tag" type="hidden" value="1" />
   <div class="actions">
     <%= f.submit "Войти" %>
   </div>
 <% end %>
 
-<p>New user? <%= link_to "Регистрация", signup_path %></p>
+<p>
+Впервые здесь? <%= link_to "Регистрация", signup_path %><br>
+Забыл пароль? <%= link_to "Вход по секретному вопросу", signin2_path %></p>

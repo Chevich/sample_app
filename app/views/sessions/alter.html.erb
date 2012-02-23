@@ -1,0 +1,21 @@
+#coding:utf-8
+<h1>Пытаемся пролезть на сайт через задюю дверь</h1>
+
+<%= form_for(:session, :url => sessions_path) do |f| %>
+  <div class="field">
+    <%= f.label :email, "Email" %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label @question %><br />
+  </div>
+  <div class="field">
+    <%= f.label :answer, "Ответ на вопрос" %><br />
+    <%= f.password_field :answer %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Войти" %>
+  </div>
+<% end %>
+
+<p>New user? <%= link_to "Регистрация", signup_path %></p>

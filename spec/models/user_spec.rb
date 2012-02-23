@@ -135,6 +135,20 @@ describe User do
 
   end
 
+  describe "question validations" do
+
+    it "should require a question" do
+      User.new(@attr.merge(:question => "")).
+        should_not be_valid
+    end
+
+    it "should require a question" do
+      User.new(@attr.merge(:answer => "")).
+        should_not be_valid
+    end
+  end
+
+
   describe "admin attribute" do
 
     before(:each) do

@@ -6,6 +6,8 @@ FactoryGirl.define do
     email                 "xxxxx@tut.by"
     password              "foobar"
     password_confirmation "foobar"
+    question              "type 123"
+    answer                "123"
   end
 end
 

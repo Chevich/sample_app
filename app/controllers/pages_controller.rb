@@ -15,6 +15,7 @@ class PagesController < ApplicationController
 
   def about
     @title = 'О нас'
+    @user = current_user
   end
 
   def help

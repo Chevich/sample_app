@@ -11,7 +11,7 @@
 
 class User < ActiveRecord::Base
   attr_accessor :password
-  attr_accessible :name, :email, :password, :password_confirmation
+  attr_accessible :name, :email, :password, :password_confirmation, :question, :answer
 
   has_many :microposts, :dependent => :destroy
 
@@ -39,6 +39,8 @@ class User < ActiveRecord::Base
   validates :password, :confirmation => true,
     :presence => true,
     :length => { :within => 6..40 }
+  validates :question, :presence => true
+  validates :answer, :presence => true
 
   before_save :encrypt_password
 
@@ -54,6 +56,11 @@ class User < ActiveRecord::Base
     user = find_by_email(email)
     user = find_by_name(email) if user.nil?
     (user && user.has_password?(submitted_password)) ? user : nil
+  end
+
+  def self.authenticate_by_question(email, answer)
+    find_by_email_and_answer(email, answer)
+    #(user && user.has_password?(submitted_password)) ? user : nil
   end
 
   def self.authenticate_with_salt(id, cookie_salt)

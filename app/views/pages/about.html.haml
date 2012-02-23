@@ -1,0 +1,20 @@
+%h1
+  =project_name+" | "+@title
+.text
+  - unless @user.nil?
+    .username
+      Пользователь
+      - name = @user.name
+      = name
+  %br/
+  Некоторые виды форматирования HAML:
+  %ul
+    %li % - тег
+    %li = - вычисление
+    %li - - выражение не возвращающее результат
+    %li #, . - соответственно id и класс div
+    %li : - фильтр(textile, sass, ruby, plain)
+  %p
+    Время создания страницы :
+    - now = DateTime.now
+    %strong= now

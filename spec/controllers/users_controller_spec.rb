@@ -127,7 +127,7 @@ describe UsersController do
 
       it "should have a welcome message" do
         post :create, :user => @attr
-        flash[:success].should =~ /welcome to the sample app/i
+        flash[:success].should =~ /Твиттер-шмиттер/i
       end
 
       it "should sign the user in" do
@@ -209,7 +209,7 @@ describe UsersController do
 
       it "should have a flash message" do
         put :update, :id => @user, :user =>@attr
-        flash[:success].should =~ /Profile updated/i
+        flash[:success].should =~ /обновлен/i
       end
     end
   end

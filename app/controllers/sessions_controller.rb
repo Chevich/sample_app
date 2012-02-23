@@ -37,7 +37,7 @@ class SessionsController < ApplicationController
       render :new
     else
       sign_in user
-      if s==1
+      if s == '1'
         redirect_back_or user
       else
         redirect_to(edit_user_path(user))

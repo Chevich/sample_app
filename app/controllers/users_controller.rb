@@ -14,6 +14,12 @@ class UsersController < ApplicationController
     @title = @user.name
   end
 
+  def filter
+    @filter_str = params[:user][:word]
+    @title = "Отбор пользователей по фрагменту #{@filter_str}"
+    @users = User.filtered(@filter_str).paginate(:page => params[:page])
+  end
+
   def index
     @title = "Список всех пользователей"
     @users = User.paginate(:page => params[:page])

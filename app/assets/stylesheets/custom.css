@@ -139,6 +139,14 @@ td.sidebar {
   background: #ffd;
 }
 
+td.search {
+  width: 30%;
+  padding: 1em;
+  vertical-align: top;
+  background: #ffd;
+}
+
+
 .profile img.gravatar {
   border: 1px solid #999;
   margin-bottom: -15px;

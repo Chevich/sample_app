@@ -11,6 +11,7 @@ SampleApp::Application.routes.draw do
   resources :microposts, :only => [:create, :destroy]
   resources :relationships, :only => [:create, :destroy]
 
+  match '/filter',    :to => 'users#filter'
   match '/signup',    :to => 'users#new'
   match '/signin',  :to => 'sessions#new'
   match '/signin2',  :to => 'sessions#alter'

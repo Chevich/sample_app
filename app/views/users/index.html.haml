@@ -1,2 +1,14 @@
 %h1 Все пользователи
-=render @users
+%table
+  %td
+    = will_paginate
+    %ul.users= render @users
+    = will_paginate
+  %td.search
+    = form_for :user, :url => {:action => :filter}  do |f|
+      %p
+        = f.label "Фильтр по имени"
+        %br/
+        = f.text_field :word
+      = f.submit "Submit"
+

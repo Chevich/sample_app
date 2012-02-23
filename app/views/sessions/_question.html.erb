@@ -1,0 +1,5 @@
+<%= form_for "for_user", :action => :question?, :method => :get,
+             :remote => true do |f| %>
+  <div><%= f.hidden_field :email %></div>
+  <div class="actions"><%= f.submit "Найти вопрос" %></div>
+<% end %>

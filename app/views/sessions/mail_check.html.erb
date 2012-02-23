@@ -1,10 +1,12 @@
 #coding:utf-8
 <h1>Пытаемся пролезть на сайт через задюю дверь</h1>
 
-<%= form_for(:session, :url => { :action => "mail_check" }) do |f| %>
+<%= form_for(:session, :url => sessions_path) do |f| %>
+    <%= f.label :question, "Вопрос:"+@question %><br />
+    <%= f.text_field :email, :type => :hidden, :value=>@email %>
   <div class="field">
-    <%= f.label :email, "Email" %><br />
-    <%= f.text_field :email %>
+    <%= f.label :answer, "Ваш ответ" %><br />
+    <%= f.text_field :answer %>
   </div>
   <div class="actions">
     <%= f.submit "Далее" %>

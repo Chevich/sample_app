@@ -5,7 +5,7 @@
     %ul.users= render @users
     = will_paginate
   %td.search
-    = form_for :user, :url => {:action => :filter}  do |f|
+    = form_for :user, :url => {:action => :filter}, :method => "get"  do |f|
       %p
         = f.label "Фильтр по имени"
         %br/

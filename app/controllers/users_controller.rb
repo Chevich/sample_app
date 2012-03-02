@@ -18,6 +18,7 @@ class UsersController < ApplicationController
     @filter_str = params[:user][:word]
     @title = "Отбор пользователей по фрагменту #{@filter_str}"
     @users = User.filtered(@filter_str).paginate(:page => params[:page])
+    render 'filter'
   end
 
   def index
@@ -54,6 +55,7 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user
       flash[:success] = "Добро пожаловать в Твиттер-шмиттер"
+      UserMailer.welcome_email(@user).deliver
       redirect_to @user
     else
       @title = "Регистрация"
@@ -86,6 +88,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @users = @user.following.paginate(:page => params[:page])
     render 'show_follow'
+  end
+
+  def email_me_password
+    #
   end
 
 private

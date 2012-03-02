@@ -3,7 +3,7 @@
   = @filter_str
 %table
   %td
-    = will_paginate @users, :params => {:user => {:word => @filter_str}}
+    = will_paginate @users, params: {user: {word: @filter_str}}
     %ul.users= render @users
     = will_paginate @users, :params => {:user => {:word => @filter_str}}
   %td.search

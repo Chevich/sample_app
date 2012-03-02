@@ -259,3 +259,20 @@ form.new_micropost textarea {
   height: 4em;
   margin-bottom: 0;
 }
+
+#help_page {
+	margin: 20px auto;
+	padding: 0;
+	width: 580px;
+	font: 80%/120% Arial, Helvetica, sans-serif;
+}
+#help_page a {
+	font-weight: bold;
+	color: #000000;
+}
+#help_page #box {
+	background: #6699FF;
+	height: 100px;
+	width: 100px;
+	position: relative;
+}

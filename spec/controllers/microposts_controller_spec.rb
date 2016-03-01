@@ -16,7 +16,6 @@ describe MicropostsController do
     end
   end
 
-
   describe "POST 'create'" do
 
     before(:each) do

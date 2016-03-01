@@ -11,7 +11,7 @@ module ApplicationHelper
     if @title.nil?
       "#{@@main_title}"
     else
-      "#{@@main_title} | #{@title}"
+      "#{@@main_title} | #{@title} | andy"
     end
   end
 

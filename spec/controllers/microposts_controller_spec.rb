@@ -5,7 +5,7 @@ describe MicropostsController do
 
   describe "access control" do
 
-    it "should deny access to 'create'" do
+    it "should deny access to 'create' 123123123" do
       post :create
       response.should redirect_to(signin_path)
     end

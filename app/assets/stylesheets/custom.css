@@ -32,12 +32,12 @@ section h1 {
   font-size: 200%;
 }
 
-/* Links */
+ Links
 
 a {
   color: #09c;
   text-decoration: none;
-} 
+}
 
 
 
@@ -85,7 +85,7 @@ nav ul li a:hover {
   color: #000;
 }
 
-/* Sign up button */
+ Sign up button
 
 a.signup_button {
   margin-left: auto;
@@ -101,7 +101,7 @@ a.signup_button {
   padding: 20px 0px 20px 0px;
 }
 
-/* Round corners */
+ Round corners
 
 
 .round {
@@ -275,4 +275,77 @@ form.new_micropost textarea {
 	height: 100px;
 	width: 100px;
 	position: relative;
+}
+
+#help_chapter1 {
+	margin: 10px auto;
+	width: 570px;
+	font: 75%/120% Arial, Helvetica, sans-serif;
+}
+#help_chapter1 .menu {
+	margin: 100px 0 0;
+	padding: 0;
+	list-style: none;
+}
+#help_chapter1 .menu li {
+	padding: 0;
+	margin: 0 2px;
+	float: left;
+	position: relative;
+	text-align: center;
+}
+#help_chapter1 .menu a {
+	padding: 14px 10px;
+	display: block;
+	color: #000000;
+	width: 144px;
+	text-decoration: none;
+	font-weight: bold;
+	background: url(button.gif) no-repeat center center;
+}
+#help_chapter1 .menu li em {
+	background: url(hover.png) no-repeat;
+	width: 180px;
+	height: 45px;
+	position: absolute;
+	top: -85px;
+	left: -15px;
+	text-align: center;
+	padding: 20px 12px 10px;
+	font-style: normal;
+	z-index: 2;
+	display: none;
+}
+
+#help_chapter2 {
+    padding: 13px;
+	margin: 10px auto;
+	width: 570px;
+	font: 75%/120% Arial, Helvetica, sans-serif;
+}
+#help_chapter2 .accordion {
+	width: 480px;
+	border-bottom: solid 1px #c4c4c4;
+}
+#help_chapter2 .accordion h3 {
+	background: #e9e7e7 url(arrow-square.gif) no-repeat right -51px;
+	padding: 7px 15px;
+	margin: 0;
+	font: bold 120%/100% Arial, Helvetica, sans-serif;
+	border: solid 1px #c4c4c4;
+	border-bottom: none;
+	cursor: pointer;
+}
+#help_chapter2 .accordion h3:hover {
+	background-color: #e3e2e2;
+}
+#help_chapter2 .accordion h3.active {
+	background-position: right 5px;
+}
+#help_chapter2 .accordion p {
+	background: #f7f7f7;
+	margin: 0;
+	padding:  10px 15px 20px;
+	border-left: solid 1px #c4c4c4;
+	border-right: solid 1px #c4c4c4;
 }
